@@ -1,27 +1,54 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logOut } = UserAuth();
+  // console.log(user.email);
   return (
     <div className="flex flex-row relative items-center justify-between p-4 bg-gray-300">
       <div className="flex items-center space-x-8">
-        <a href="/" className="">
+        <Link to="/">
           <span className="text-3xl font-semibold px-3">DriveBox</span>
-        </a>
-        <a href="/" className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
-          <span className="text-white px-3">Home</span>
-        </a>
-        <a href="/device" className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
-          <span className="text-white px-3">Device</span>
-        </a>
+        </Link>
+        <Link to="/">
+          <button className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
+            <span className="text-white px-3">Home</span>
+          </button>
+        </Link>
+        <Link to="/device">
+          <button className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
+            <span className="text-white px-3">Device</span>
+          </button>
+        </Link>
       </div>
-      <div className="flex items-center text-rigth space-x-4">
-        <a href="/" className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
-          <span className="text-white px-3">Sign In</span>
-        </a>
-        <a href="/" className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
-          <span className="text-white px-3">Sign Up</span>
-        </a>
-      </div>
+      {user?.email ? (
+        <div className="flex items-center text-rigth space-x-4">
+          <Link to="/login">
+            <button className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
+              <span className="text-white px-3">SignIn</span>
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
+              <span className="text-white px-3">SignUp</span>
+            </button>
+          </Link>
+        </div>
+      ) : (
+        <div className="flex items-center text-rigth space-x-4">
+          <Link to="/login">
+            <button className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
+              <span className="text-white px-3">SignIn</span>
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
+              <span className="text-white px-3">SignUp</span>
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
