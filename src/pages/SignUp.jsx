@@ -45,6 +45,13 @@ const SignUp = () => {
           <button className="my-6 h-12 rounded-md bg-red-500 shadow-md">
             <span className="font-bold">Sign Up</span>
           </button>
+          <p>
+            Alrady have account?
+            <Link to="/login" className="text-red-500">
+              {" "}
+              LogIn
+            </Link>
+          </p>
         </form>
       </div>
     </div>

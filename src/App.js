@@ -6,7 +6,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import Account from "./pages/Account";
-import ProtectedRoute from "./pages/ProtextedRoute";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   return (
