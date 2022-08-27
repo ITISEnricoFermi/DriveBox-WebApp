@@ -14,10 +14,11 @@ const Account = () => {
       console.log(error);
     }
   };
+  //TODO: add style and profile image
   return (
     <div>
       <form onSubmit={handleUpdate}>
-        <input onChange={(e) => setDisplayName(e.target.value)} type="text" />
+        <input placeholder="Username" onChange={(e) => setDisplayName(e.target.value)} type="text" />
         <button>set</button>
       </form>
     </div>
