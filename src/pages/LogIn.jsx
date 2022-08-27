@@ -14,6 +14,7 @@ const LogIn = () => {
     setError("");
     try {
       await logIn(email, password);
+      console.log(`User ${user.uid} logged in`);
       navigate("/");
     } catch (error) {
       console.log(error);

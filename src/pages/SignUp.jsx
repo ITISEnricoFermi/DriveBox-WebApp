@@ -5,16 +5,24 @@ import { Link, useNavigate } from "react-router-dom";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user, signUp } = UserAuth();
+  const [error, setError] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const { user, signUp, updateDisplayName } = UserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     try {
       await signUp(email, password);
+      console.log(`User ${user.uid} created`)
+      await updateDisplayName(displayName);
+      await updateDisplayName(displayName);
+      console.log(`User displayname updated to ${user.displayName}`);
       navigate("/");
     } catch (error) {
       console.log(error);
+      setError(error.message);
     }
   };
 
@@ -26,7 +34,14 @@ const SignUp = () => {
           className="flex flex-col py-4 justify-around space-y-2"
         >
           <span className="text-4xl font-semibold ">SignUp</span>
+          {error ? <p className="text-red-500">{error}</p> : null}
           <div>
+          <input
+              onChange={(e) => setDisplayName(e.target.value)}
+              className="p-3 my-2 rounded-md"
+              type="Username"
+              placeholder="Username"
+            />
             <input
               onChange={(e) => setEmail(e.target.value)}
               className="p-3 my-2 rounded-md"
