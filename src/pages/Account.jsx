@@ -14,7 +14,6 @@ const Account = () => {
       console.log(error);
     }
   };
-  //TODO: add style and profile image
   return (
     <div>
       <form onSubmit={handleUpdate}>
