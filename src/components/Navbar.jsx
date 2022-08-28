@@ -30,7 +30,20 @@ const Navbar = () => {
             <span className="text-white px-3">Device</span>
           </button>
         </Link>
+        <Link to="/shop">
+        <button className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
+            <span className="text-white px-3">Shop</span>
+          </button>
+        </Link>
+        <Link to="/faq">
+        <button className="bg-indigo-600 rounded-md py-2 shadow-md shadow-indigo-900/60 hover:shadow-none">
+            <span className="text-white px-3">FAQ</span>
+          </button>
+        </Link>
       </div>
+
+      {/*if user logged show account and logout else show signin and signup*/}
+      
       {user?.email ? (
         <div className="flex items-center text-rigth space-x-4">
           <Link to="/account">
