@@ -44,7 +44,7 @@ const LogIn = () => {
                 type="password"
                 placeholder="Password"
                 autoComplete="current-password"
-              />
+              />a
             </div>
             <button
               className="h-12 rounded-md bg-red-500 shadow-md"
