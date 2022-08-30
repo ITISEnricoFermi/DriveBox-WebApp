@@ -15,7 +15,7 @@ const SignUp = () => {
     setError("");
     try {
       await signUp(email, password);
-      console.log(`User created`)
+      console.log(`User created`);
       await updateDisplayName(displayName);
       console.log(`User displayname updated to ${user.displayName}`);
       navigate("/");
@@ -24,8 +24,7 @@ const SignUp = () => {
       setError(error.message);
     }
   };
-  if (user==null){
-  return (
+  return(
     <div className="flex items-center justify-center mx-auto my-96">
       <div className="flex justify-center bg-slate-100 shadow-md rounded-2xl p-8 w-full max-w-[350px] h-screen max-h-[450px]">
         <form
@@ -35,7 +34,7 @@ const SignUp = () => {
           <span className="text-4xl font-semibold ">SignUp</span>
           {error ? <p className="text-red-500">{error}</p> : null}
           <div>
-          <input
+            <input
               onChange={(e) => setDisplayName(e.target.value)}
               className="p-3 my-2 rounded-md"
               type="Username"
@@ -68,9 +67,7 @@ const SignUp = () => {
         </form>
       </div>
     </div>
-  )} else {
-    navigate("/");
-  }
+  );
 };
 
 export default SignUp;
