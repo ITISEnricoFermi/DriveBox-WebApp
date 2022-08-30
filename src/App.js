@@ -9,6 +9,7 @@ import Account from "./pages/Account";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Shop from "./pages/Shop";
 import Faq from "./pages/Faq";
+import PreventedRoute from "./pages/PreventedRoute";
 
 function App() {
   return (
@@ -17,8 +18,22 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/login"
+            element={
+              <PreventedRoute>
+                <LogIn />
+              </PreventedRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <PreventedRoute>
+                <SignUp />
+              </PreventedRoute>
+            }
+          />
           <Route path="/shop" element={<Shop />} />
           <Route path="/faq" element={<Faq />} />
           <Route
