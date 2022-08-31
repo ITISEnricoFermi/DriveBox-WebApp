@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Device from "./pages/Device";
 import { AuthContextProvider } from "./context/AuthContext";
-import LogIn from "./pages/LogIn";
+import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Account from "./pages/Account";
 import ProtectedRoute from "./pages/ProtectedRoute";
@@ -19,10 +19,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/login"
+            path="/signin"
             element={
               <PreventedRoute>
-                <LogIn />
+                <SignIn />
               </PreventedRoute>
             }
           />

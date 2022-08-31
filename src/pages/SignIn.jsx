@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 
-const LogIn = () => {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { logIn } = UserAuth();
+  const { signin } = UserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      await logIn(email, password);
+      await signin(email, password);
       console.log(`User logged in`);
       navigate("/");
     } catch (error) {
@@ -64,4 +64,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default SignIn;

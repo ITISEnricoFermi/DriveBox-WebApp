@@ -10,8 +10,8 @@ const navigation = [
   { name: "Device", to: "/device", current: false, key: 2 },
   { name: "Shop", to: "/shop", current: false, key: 3 },
   { name: "FAQ", to: "/faq", current: false, key: 4 },
-  { name: "Login", to: "/login", current: false, key: 5, auth: true },
-  { name: "Signup", to: "/signup", current: false, key: 6, auth: true },
+  { name: "SignIn", to: "/signin", current: false, key: 5, auth: true },
+  { name: "SignUp", to: "/signup", current: false, key: 6, auth: true },
 ];
 
 function classNames(...classes) {
@@ -146,7 +146,7 @@ export default function Navbar() {
                 ) : (
                   <div className="hidden md:block">
                     <div className="flex space-x-4">
-                      <Link to={"/login"}>
+                      <Link to={"/signin"}>
                         <button
                           type="button"
                           className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
