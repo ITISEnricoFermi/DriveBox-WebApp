@@ -22,7 +22,7 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center mx-auto my-96">
+    <div className="flex items-center justify-center mx-auto h-screen pb-16">
       <div className="flex justify-center bg-slate-100 shadow-md rounded-2xl p-8 w-full max-w-[350px] h-screen max-h-[450px]">
         <form
           onSubmit={handleSubmit}
