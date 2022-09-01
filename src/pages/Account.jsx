@@ -23,9 +23,8 @@ const Account = () => {
         onchange={(e) => setDisplayName(e.target.value)}
         placeholder="Username"
         type="text"
-      >
-        <Button buttonText='Update'></Button>
-      </FormElement>
+      ></FormElement>
+      <Button>Update</Button>
     </Form>
   );
 };
