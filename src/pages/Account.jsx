@@ -15,11 +15,17 @@ const Account = () => {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleUpdate}>
-        <input placeholder="Username" onChange={(e) => setDisplayName(e.target.value)} type="text" />
-        <button>set</button>
-      </form>
+    <div className="flex h-screen">
+      <div className="text-center m-auto">
+        <form onSubmit={handleUpdate}>
+          <input
+            placeholder="Username"
+            onChange={(e) => setDisplayName(e.target.value)}
+            type="text"
+          />
+          <button>set</button>
+        </form>
+      </div>
     </div>
   );
 };
