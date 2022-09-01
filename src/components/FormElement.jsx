@@ -1,15 +1,15 @@
 import React from "react";
 
-const FormElement = ({ onchange, type, placeholder, buttonText }) => {
+const FormElement = ({children, onchange, type, placeholder, buttonText }) => {
   return (
-    <div className="space-x-4 space-y-8">
+    <div>
       <input
         placeholder={placeholder}
         onChange={onchange}
         type={type}
-        className="p-3 my-2 rounded-md"
+        className="p-3 my-2 w-full max-w-[260px] rounded-md"
       />
-      <button className="bg-red-500 rounded-md p-3">{buttonText}</button>
+      {children}
     </div>
   );
 };

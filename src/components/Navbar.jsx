@@ -34,7 +34,7 @@ export default function Navbar() {
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between h-16 lg:h-20 ">
+            <div className="relative flex items-center justify-between h-16 ">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -91,7 +91,7 @@ export default function Navbar() {
                           <img src={user.photoURL} alt="avatar" />
                         ) : (
                           <div className="grid place-items-center bg-white rounded-full w-10 h-10">
-                            {user.displayName[0]}
+                            {user?.displayName? user.displayName[0]: user.email[0]}
                           </div>
                         )}
                       </Menu.Button>
@@ -105,14 +105,14 @@ export default function Navbar() {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="origin-top-right absolute right-0 mt-4 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
                             <Link
                               to="/account"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                "block px-4 py-2 text-sm rounded-t-md text-gray-700"
                               )}
                             >
                               Your Profile
@@ -125,7 +125,7 @@ export default function Navbar() {
                               onClick={handleLogOut}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                "flex w-full px-4 py-2 text-sm rounded-b-md text-gray-700"
                               )}
                             >
                               Sign out

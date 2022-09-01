@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "../components/Form";
 import FormElement from "../components/FormElement";
+import Button from "../components/Button";
 import { UserAuth } from "../context/AuthContext";
 
 const Account = () => {
@@ -21,9 +22,10 @@ const Account = () => {
       <FormElement
         onchange={(e) => setDisplayName(e.target.value)}
         placeholder="Username"
-        buttonText="Update "
         type="text"
-      ></FormElement>
+      >
+        <Button buttonText='Update'></Button>
+      </FormElement>
     </Form>
   );
 };

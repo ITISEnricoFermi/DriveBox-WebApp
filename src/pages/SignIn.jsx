@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Form from "../components/Form";
+import FormElement from "../components/FormElement";
+import Button from "../components/Button";
 import { UserAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -22,45 +26,27 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center mx-auto h-screen pb-16">
-      <div className="flex justify-center bg-slate-100 shadow-md rounded-2xl p-8 w-full max-w-[350px] h-screen max-h-[450px]">
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col py-4 justify-around space-y-2"
-        >
-          <span className="text-4xl font-semibold ">SignIn</span>
-          {error ? <p className="text-red-500">{error}</p> : null}
-          <div>
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              className="p-3 my-2 rounded-md"
-              type="email"
-              placeholder="Email"
-            />
-            <input
-              onChange={(e) => setPassword(e.target.value)}
-              className="p-3 my-2 rounded-md"
-              type="password"
-              placeholder="Password"
-              autoComplete="current-password"
-            />
-          </div>
-          <button
-            className="h-12 rounded-md bg-red-500 shadow-md"
-            type="submit"
-          >
-            <span className="font-bold">Sign In</span>
-          </button>
-          <p>
-            Do not have account?
-            <Link to="/signup" className="text-red-500">
-              {" "}
-              SignUp
-            </Link>
-          </p>
-        </form>
+    <Form onsubmite={handleSubmit} title="SignIn" error={error}>
+      <div>
+        <FormElement
+          onchange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          type="email"
+        ></FormElement>
+        <FormElement
+          onchange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          type="password"
+        ></FormElement>
       </div>
-    </div>
+      <Button>Login</Button>
+      <p>
+        Don't have an account?{" "}
+        <Link to="/signup" className="text-red-500 hover:underline">
+          Sign Up
+        </Link>
+      </p>
+    </Form>
   );
 };
 
