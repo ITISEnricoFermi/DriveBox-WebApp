@@ -5,7 +5,7 @@ import {UserAuth} from '../context/AuthContext'
 // Prevent the user from accessing pages if they are already logged in
 const PreventedRoute = ({children}) => {
     const {user} = UserAuth()
-    if (user) {
+    if (user?.email? true : false) {
       return <Navigate to='/' />
     }
     return children 
