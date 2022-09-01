@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Form from "../components/Form";
+import FormElement from "../components/FormElement";
 import { UserAuth } from "../context/AuthContext";
 
 const Account = () => {
@@ -15,18 +17,14 @@ const Account = () => {
     }
   };
   return (
-    <div className="flex h-screen">
-      <div className="text-center m-auto">
-        <form onSubmit={handleUpdate}>
-          <input
-            placeholder="Username"
-            onChange={(e) => setDisplayName(e.target.value)}
-            type="text"
-          />
-          <button>set</button>
-        </form>
-      </div>
-    </div>
+    <Form onsubmite={handleUpdate} title="Account">
+      <FormElement
+        onchange={(e) => setDisplayName(e.target.value)}
+        placeholder="Username"
+        buttonText="Update "
+        type="text"
+      ></FormElement>
+    </Form>
   );
 };
 
